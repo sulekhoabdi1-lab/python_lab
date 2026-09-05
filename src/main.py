@@ -1,19 +1,23 @@
 from utils import square, is_even, celsius_to_fahrenheit
 
 def main():
-    # Prompt user for input
     user_input = input("Enter a number: ")
-    num = float(user_input)
-    
-    # Calculate results
-    sq = square(num)
-    even_status = "even" if is_even(num) else "odd"
-    fahrenheit = celsius_to_fahrenheit(num)
-    
-    # Display results
-    print(f"Square: {sq}")
-    print(f"The number is {even_status}.")
-    print(f"Celsius ({num}°C) in Fahrenheit: {fahrenheit}°F")
+    try:
+        num = float(user_input)
+        
+        # Display results
+        print(f"Square of {num}: {square(num)}")
+        
+        # Check even/odd only if it's a whole number
+        if num.is_integer():
+            print(f"Is {int(num)} even?: {is_even(int(num))}")
+        else:
+            print(f"Is {num} even?: N/A (decimal number)")
+            
+        print(f"Fahrenheit equivalent ({num}°C): {celsius_to_fahrenheit(num)}°F")
+        
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
 
 if __name__ == "__main__":
     main()
