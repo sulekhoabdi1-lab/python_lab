@@ -1,6 +1,9 @@
-from utils import square, is_even, celsius_to_fahrenheit
+from utils import square, is_even, celsius_to_fahrenheit, greet
 
 def main():
+    # Test the new greeting feature
+    print(greet("Developer"))
+    
     user_input = input("Enter a number: ")
     try:
         num = float(user_input)
